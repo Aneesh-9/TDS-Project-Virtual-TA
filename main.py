@@ -1,14 +1,14 @@
 # main.py
 import os
 import uvicorn
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 
 app = FastAPI()
 
 @app.get("/")
-def read_root():
-    return {"message": "Virtual TA is up and running!"}
+def home():
+    return {"message": "Virtual TA is running successfully!"}
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))  # Railway sets this PORT
+    port = int(os.environ.get("PORT", 8000))
     uvicorn.run("main:app", host="0.0.0.0", port=port)
